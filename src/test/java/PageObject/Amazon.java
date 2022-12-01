@@ -100,16 +100,21 @@ public class Amazon {
     }
 
     public void clickTVOptionFromCategory() throws InterruptedException {
+        scrollTo(tvAppbtn);
         tvAppbtn.click();
         webDriverWait(mainMenuBtn);
         tvbtn.click();
         webDriverWait(mainContainer);
         Thread.sleep(2000);
-        JavascriptExecutor js = (JavascriptExecutor) ldriver;
-        js.executeScript("arguments[0].scrollIntoView();", brandFilter);
+        scrollTo(brandFilter);
         Thread.sleep(2000);
         samsungFilterbtn.click();
         Thread.sleep(2000);
+    }
+
+    private void scrollTo(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) ldriver;
+        js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
     public void sortHighToLowOption() throws InterruptedException {
@@ -131,6 +136,7 @@ public class Amazon {
             }
         }
         Thread.sleep(2000);
+        scrollTo(aboutDescription);
         Assert.assertEquals(actualMessage,aboutDescription.getText());
         System.out.println(aboutDescription.getText());
     }
