@@ -43,3 +43,4 @@ target/clipBoardAssesment-1.0-SNAPSHOT.jar
 target/maven-archiver/pom.properties
 target/surefire-reports/testng-failed.xml
 target/surefire-reports/All Test Suite/testng-failed.xml
+target/surefire-reports/2022-12-01T22-28-11_136-jvmRun1.dumpstream

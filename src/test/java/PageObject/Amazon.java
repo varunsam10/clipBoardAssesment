@@ -98,14 +98,14 @@ public class Amazon {
     public void clickTVOptionFromCategory() throws InterruptedException {
         scrollTo(tvAppbtn);
         tvAppbtn.click();
-        webDriverWait(mainMenuBtn);
+        Thread.sleep(500);
         tvbtn.click();
         webDriverWait(mainContainer);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         scrollTo(brandFilter);
         Thread.sleep(2000);
         samsungFilterbtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
 
     private void scrollTo(WebElement element) {
@@ -115,11 +115,11 @@ public class Amazon {
 
     public void sortHighToLowOption() throws InterruptedException {
         sortBtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         highSortOption.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         secondHighestOption.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
 
     public void selectTheSecondHighestItem() throws InterruptedException {
@@ -131,7 +131,7 @@ public class Amazon {
                 System.out.println(aboutDescription.getText());
             }
         }
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         scrollTo(aboutDescription);
         Thread.sleep(1000);
         Assert.assertEquals(actualMessage,aboutDescription.getText());
