@@ -30,10 +30,6 @@ public class Amazon {
         PageFactory.initElements(rdriver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"nav-logo-sprites\"]")
-    @CacheLookup
-    WebElement homeLogo;
-
     @FindBy(xpath = "//*[@id=\"nav-hamburger-menu\"]")
     @CacheLookup
     WebElement hamBurgerbtn;
@@ -45,11 +41,12 @@ public class Amazon {
     @FindBy(xpath = "//div[@id=\"hmenu-content\"]//a[@data-menu-id=9]")
     @CacheLookup
     WebElement tvAppbtn;
-    @FindBy(xpath = "//*[@id=\"hmenu-content\"]/ul[9]")
+
+    @FindBy(xpath = "//*[@id=\"hmenu-content\"]/ul[@class=\"hmenu hmenu-visible hmenu-translateX\"]/li/a")
     @CacheLookup
     WebElement mainMenuBtn;
 
-    @FindBy(xpath = "//*[@id=\"hmenu-content\"]/ul[9]/li[3]")
+    @FindBy(xpath = "//*[@id=\"hmenu-content\"]/ul/li/a[contains(@href,'tvelec')]")
     @CacheLookup
     WebElement tvbtn;
     @FindBy(xpath = "//div[@class=\"a-container\"]")
@@ -98,7 +95,7 @@ public class Amazon {
     public void clickTVOptionFromCategory() throws InterruptedException {
         scrollTo(tvAppbtn);
         tvAppbtn.click();
-        Thread.sleep(500);
+        webDriverWait(mainMenuBtn);
         tvbtn.click();
         webDriverWait(mainContainer);
         Thread.sleep(1000);
