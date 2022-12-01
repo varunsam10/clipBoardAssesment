@@ -45,7 +45,7 @@ public class Amazon {
     @FindBy(xpath = "//div[@id=\"hmenu-content\"]//a[@data-menu-id=9]")
     @CacheLookup
     WebElement tvAppbtn;
-    @FindBy(xpath = "//div[@id=\"hmenu-content\"]//a[@data-ref-tag=\"nav_em_1_9_BT_0_main_menu\"]")
+    @FindBy(xpath = "//*[@id=\"hmenu-content\"]/ul[9]")
     @CacheLookup
     WebElement mainMenuBtn;
 
@@ -84,10 +84,6 @@ public class Amazon {
     @FindBy(xpath = "//*[@id=\"feature-bullets\"]")
     @CacheLookup
     WebElement aboutDescription;
-
-    public Amazon() {
-
-    }
 
     public void clickHamburgerBtn() {
         hamBurgerbtn.click();
@@ -137,6 +133,7 @@ public class Amazon {
         }
         Thread.sleep(2000);
         scrollTo(aboutDescription);
+        Thread.sleep(1000);
         Assert.assertEquals(actualMessage,aboutDescription.getText());
         System.out.println(aboutDescription.getText());
     }

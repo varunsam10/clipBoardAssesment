@@ -13,7 +13,7 @@ public class BaseClass {
     public void startUp() {
         System.setProperty("webdriver.chrome.driver", "src/Drivers/chromedriver");
         driver = new ChromeDriver();
-        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
     }
 
     @AfterClass
